@@ -30,6 +30,12 @@ function ListCommandeLunix() {
             nom: "Lancer le fichier",
             commande: "sudo ./xampp-linux-x64-8.2.12-0-installer.run",
             type : "lunix"
+        },
+        {
+            id : 6,
+            nom: "Ubuntu desktop",
+            commande: "sudo apt-get install ubuntu-desktop",
+            type : "lunix"
         }
     ];
 }
