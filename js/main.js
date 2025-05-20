@@ -72,7 +72,7 @@ function renderCommandes() {
                     btn.textContent = original;
                     btn.classList.remove('btn-success');
                     btn.classList.add('btn-outline-secondary');
-                }, 1200);
+                }, 2400);
             });
         });
     });
