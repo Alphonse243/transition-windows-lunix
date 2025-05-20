@@ -30,4 +30,4 @@ Ce projet fournit une interface web simple pour retrouver et copier rapidement d
   `sudo ./xampp-linux-x64-8.2.12-0-installer.run`
 
 ---
-© 2024
+© 2025

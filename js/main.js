@@ -2,24 +2,34 @@
 function ListCommandeLunix() {
     return [
         {
+            id : 1,
             nom : "Redemarrage de l'ordinateur",
-            commande : "sudo reboot"
+            commande : "sudo reboot",
+            type : "lunix"
         },
         {
+            id : 2,
             nom: "Démarrage serveur XAMPP",
-            commande: "sudo /opt/lampp/lampp start"
+            commande: "sudo /opt/lampp/lampp start",
+            type : "lunix"
         },
         {
+            id : 3,
             nom: "Pour résoudre le problème de démarrage de MySQL",
-            commande: "sudo apt install net-tools"
+            commande: "sudo apt install net-tools",
+            type : "lunix"
         },
         {
+            id : 4,
             nom: "Installation XAMPP, donner la permission",
-            commande: "sudo chmod +x xampp-linux.run"
+            commande: "sudo chmod +x xampp-linux.run",
+            type : "lunix"
         },
         {
+            id : 5,
             nom: "Lancer le fichier",
-            commande: "sudo ./xampp-linux-x64-8.2.12-0-installer.run"
+            commande: "sudo ./xampp-linux-x64-8.2.12-0-installer.run",
+            type : "lunix"
         }
     ];
 }
@@ -35,6 +45,7 @@ function renderCommandes() {
         li.className = 'list-group-item d-flex align-items-center justify-content-between';
         li.innerHTML = `
             <div>
+                <span class="fw-semibold">${cmd.id} :</span>
                 <span class="fw-semibold">${cmd.nom} :</span>
                 <code class="ms-2 command-text">${cmd.commande}</code>
             </div>
