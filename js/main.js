@@ -1,17 +1,65 @@
-// Copier dans le presse-papier
-document.querySelectorAll('.copy-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const command = btn.getAttribute('data-command');
-        navigator.clipboard.writeText(command).then(function() {
-            const original = btn.textContent;
-            btn.textContent = 'Copié !';
-            btn.classList.remove('btn-outline-secondary');
-            btn.classList.add('btn-success');
-            setTimeout(function() {
-                btn.textContent = original;
-                btn.classList.remove('btn-success');
-                btn.classList.add('btn-outline-secondary');
-            }, 1200);
+// Liste de commandes Lunix
+function ListCommandeLunix() {
+    return [
+        {
+            nom : "Redemarrage de l'ordinateur",
+            commande : "sudo reboot"
+        },
+        {
+            nom: "Démarrage serveur XAMPP",
+            commande: "sudo /opt/lampp/lampp start"
+        },
+        {
+            nom: "Pour résoudre le problème de démarrage de MySQL",
+            commande: "sudo apt install net-tools"
+        },
+        {
+            nom: "Installation XAMPP, donner la permission",
+            commande: "sudo chmod +x xampp-linux.run"
+        },
+        {
+            nom: "Lancer le fichier",
+            commande: "sudo ./xampp-linux-x64-8.2.12-0-installer.run"
+        }
+    ];
+}
+
+// Génère et insère les commandes dans le HTML
+function renderCommandes() {
+    const commandes = ListCommandeLunix();
+    const list = document.getElementById('command-list');
+    if (!list) return;
+    list.innerHTML = '';
+    commandes.forEach(cmd => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex align-items-center justify-content-between';
+        li.innerHTML = `
+            <div>
+                <span class="fw-semibold">${cmd.nom} :</span>
+                <code class="ms-2 command-text">${cmd.commande}</code>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm copy-btn" type="button" data-command="${cmd.commande}">Copier</button>
+        `;
+        list.appendChild(li);
+    });
+    // Réattacher les événements de copie
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const command = btn.getAttribute('data-command');
+            navigator.clipboard.writeText(command).then(function() {
+                const original = btn.textContent;
+                btn.textContent = 'Copié !';
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-success');
+                setTimeout(function() {
+                    btn.textContent = original;
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-outline-secondary');
+                }, 1200);
+            });
         });
     });
-});
+}
+
+// Appel au chargement du DOM
+document.addEventListener('DOMContentLoaded', renderCommandes);
