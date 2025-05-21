@@ -59,6 +59,6 @@ function ListCommandeLunix() {
 
 Fait par Katumba Tchibambe  
 [Github](https://github.com/Alphonse243)
-[Facebook1] (https://web.facebook.com/alpha.tchibambe) 
-[Facebook2] (https://web.facebook.com/charlotteducetf)
+[Facebook1](https://web.facebook.com/alpha.tchibambe) 
+[Facebook2](https://web.facebook.com/charlotteducetf)
 © 2025
